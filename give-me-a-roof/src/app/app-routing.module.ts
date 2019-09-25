@@ -5,10 +5,6 @@ import { DogsComponent } from './components/dogs/dogs.component';
 
 const routes: Routes = [
   {
-    path: '',
-    // component: Migue's component,
-  },
-  {
     path: 'dogs',
     component: DogsComponent,
   },
