@@ -1,0 +1,34 @@
+.home{
+    height: 70vh;
+    width: 100vw;
+    //border: 1px solid yellow;
+    display: grid;
+    grid-template-rows: 20% 70% 10%;
+    grid-template-columns: 5% 42% 53%;
+    .col{
+        grid-column-start: 2;
+        grid-row-start: 2;
+        //border: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        section{
+            /* Alinea los dos botones, dado que se encuentran dentro de la seccion */
+            align-self: center;
+        }
+        button{
+            /* La mayor parte del boton esta definida como clase btn-outline-light de bootstrap */
+            margin: 5px;
+            border-radius: 50px;
+            font-size: 14px;
+            padding: 10px;
+        }
+        button:focus{
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+    }
+}
+
