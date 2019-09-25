@@ -5,7 +5,8 @@ import { Dog } from 'src/app/models/dog';
 @Component({
   selector: 'app-dogs',
   templateUrl: './dogs.component.html',
-  styleUrls: ['./dogs.component.scss']
+  styleUrls: ['./dogs.component.scss'],
+  providers: [DogsService],
 })
 export class DogsComponent implements OnInit {
   dogs: Dog[];
