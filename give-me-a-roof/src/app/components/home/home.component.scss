@@ -1,7 +1,6 @@
 .home{
     height: 70vh;
     width: 100vw;
-    font-family: Arial, Helvetica, sans-serif;
     //border: 1px solid yellow;
     display: grid;
     grid-template-rows: 20% 70% 10%;
@@ -21,6 +20,14 @@
             /* La mayor parte del boton esta definida como clase btn-outline-light de bootstrap */
             margin: 5px;
             border-radius: 50px;
+            font-size: 14px;
+            padding: 10px;
+        }
+        button:focus{
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
         }
     }
 }
