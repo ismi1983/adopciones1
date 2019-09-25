@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DogsComponent } from './components/dogs/dogs.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+  },
   {
     path: 'dogs',
     component: DogsComponent,
