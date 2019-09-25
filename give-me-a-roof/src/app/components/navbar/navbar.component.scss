@@ -1,0 +1,60 @@
+.navbar {
+  padding: 0;
+  align-items: flex-start;
+  height: 60px;
+
+  .collapse {
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .navbar-brand {
+    padding: 8px 0 8px 16px;
+    font-weight: 700;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 80%;
+      margin-right: 15px;
+    }
+  }
+
+  ul.navbar-nav {
+    height: 100%;
+    align-items: center;
+
+    li.nav-item,
+    a.nav-link {
+      font-size: 14px;
+      color: #fff;
+    }
+
+    li.icon-item + li.icon-item {
+      margin: 0 5px;
+    }
+
+    li.donation {
+      margin-right: 32px;
+      margin-left: 32px;
+
+      font-weight: 700;
+    }
+
+    li.stripes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 100%;
+      width: 60px;
+      background-color: #fff;
+      
+      a {
+        color: #000;
+      }
+    }
+  }
+}
