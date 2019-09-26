@@ -21,9 +21,14 @@
 
     p {
       font-size: 14px;
+    }
 
-      &.dog-age {
-        text-align: right;
+    .dog-sex-age {
+      display: flex;
+      justify-content: space-between;
+
+      .dog-sex {
+        font-weight: 700;
       }
     }
 

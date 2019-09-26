@@ -14,7 +14,7 @@ export class DogsComponent implements OnInit {
   constructor(private dogService: DogsService) { }
 
   ngOnInit() {
-    this.dogs = this.dogService.getDogs();
+    this.dogService.getDogs().subscribe(dogs => this.dogs = dogs);
   }
 
 }

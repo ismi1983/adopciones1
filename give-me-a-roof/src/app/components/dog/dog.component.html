@@ -1,20 +1,23 @@
 <div class="dog-container">
-  <img src="{{ dog.photo }}" alt="Doggie" class="dog-photo img-fluid" id="dog-photo">
+  <img src="{{ dog.imgUrl }}" alt="Doggie" class="dog-photo img-fluid" id="dog-photo">
 
   <div class="dog-details">
     <h2 class="text-center">{{ dog.name }}</h2>
     <p>{{ dog.description }}</p>
-    <p class="dog-age">
-      <ng-container *ngIf="dog.age > 1">
-        Age: {{ dog.age }} years old
-      </ng-container>
-      <ng-container *ngIf="dog.age === 1">
-        Age: {{ dog.age }} year old
-      </ng-container>
-      <ng-container *ngIf="dog.age < 1">
-        Age: {{ dog.age }} months old
-      </ng-container>
-    </p>
+    <div class="dog-sex-age">
+      <p class="dog-sex">
+        {{ dog.sex | uppercase }}
+      </p>
+
+      <p class="dog-age">
+        <ng-container *ngIf="dog.age > 1">
+          Age: {{ dog.age }} years old
+        </ng-container>
+        <ng-container *ngIf="dog.age === 1">
+          Age: {{ dog.age }} year old
+        </ng-container>
+      </p>
+    </div>
 
     <div class="buttons-container">
       <button class="btn btn-secondary">View</button>
