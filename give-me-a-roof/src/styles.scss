@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import './app/sass/mixins';
+
 html,
 body {
   height: 100vh;
@@ -11,6 +13,11 @@ body {
   background-image: url('./assets/img/dogs-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: 50%;
+
+  @include medium {
+    background-position-x: 0;
+  }
 
   &:after {
     content: "";

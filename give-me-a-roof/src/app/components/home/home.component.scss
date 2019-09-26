@@ -1,53 +1,60 @@
-//Very small ones
-@mixin verysmall {
-    @media only screen and (max-width: 575px), (max-height: 575px){
-        @content;
-    }
-}
-.home{
-    height: 70vh;
+@import '../../sass/mixins';
+
+.home {
+    height: 75vh;
     width: 100vw;
-    // border: 1px solid yellow;
-    // display: grid;
-    // grid-template-rows: 20% 70% 10%;
-    // grid-template-columns: 5% 42% 53%;
     display: flex;
     align-items: center;
-    .content{
-        margin-left: 5%;
-        margin-top: 5%;
-        width: 42%;
+
+    .content {
+        padding: 0 15px;
+        width: 100%;
         height: 70%;
-        // grid-column-start: 2;
-        // grid-row-start: 2;
-        // border: 1px solid white;
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        section{
+
+        @include medium {
+            width: 42%;
+            text-align: left;
+            margin-left: 5%;
+            padding: 0;
+        }
+
+        .button-container {
             /* Alinea los dos botones, dado que se encuentran dentro de la seccion */
             align-self: center;
+            width: 100%;
+            margin-top: 15px;
+
+            @include medium {
+                margin-top: 0;
+            }
+
+            .btn {
+                /* La mayor parte del boton esta definida como clase btn-outline-light de bootstrap */
+                margin: 5px;
+                margin-bottom: 10px;
+                border-radius: 50px;
+                font-size: 14px;
+                padding: 10px;
+                width: 85%;
+
+                @include medium {
+                    width: auto;
+                    margin-bottom: 0;
+                }
+            }
+    
+            .btn:focus {
+                outline: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+            }
         }
-        button{
-            /* La mayor parte del boton esta definida como clase btn-outline-light de bootstrap */
-            margin: 5px;
-            border-radius: 50px;
-            font-size: 14px;
-            padding: 10px;
-        }
-        button:focus{
-            outline: none;
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-            box-shadow: none;
-        }
-    }
-    @include verysmall{
-        .content{
-            // border: 1px solid white;
-            width: 70%;
-            height: 100%;
-        }
+
     }
 }
 
