@@ -1,4 +1,4 @@
-@import '../../sass/base';
+@import '../../../sass/base';
 
 .dog-container {
   background-color: $background-primary;
@@ -7,17 +7,13 @@
   margin-bottom: 15px;
   color: $font-primary;
 
-  .photo-container {
+  .dog-photo {
+    object-fit: cover;
     width: 100%;
-    
-    .dog-photo {
-      object-fit: cover;
-      height: 195px;
-      border-top-left-radius: 7px;
-      border-top-right-radius: 7px;
-    }
+    height: 195px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
   }
-
 
   .dog-details {
     padding: 15px;

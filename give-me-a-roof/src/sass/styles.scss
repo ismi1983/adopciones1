@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import './app/sass/mixins';
-@import './app/sass/variables';
+@import 'base';
 
 html,
 body {
@@ -11,7 +10,7 @@ body {
 }
 
 body {
-  background-image: url('./assets/img/dogs-background.jpg');
+  background-image: url('../assets/img/dogs-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: 50%;
