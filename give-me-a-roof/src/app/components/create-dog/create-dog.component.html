@@ -1,0 +1,56 @@
+<div class="container create-dog">
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto mt-4 card">
+      <div class="card-body">
+        <h1>Create a Dog</h1>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="createForm" class="form-group">
+          <div class="row mb-3">
+            <div class="col-12 col-md-6">
+              <label for="dog-name" class="label">Name</label>
+              <input type="text" formControlName="name" id="dog-name" class="form-control" placeholder="Dog's name">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="dog-age" class="label">Age</label>
+              <input type="text" formControlName="age" id="dog-age" class="form-control" placeholder="Dog's age">
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12">
+              <p class="text-center label">Sex</p>
+            </div>
+            <div class="col-12 flex dog-sex">
+              <label for="male-dog">
+                <input type="radio" formControlName="sex" id="male-dog" value="Male">
+                Male
+              </label>
+
+              <label for="female-dog">
+                <input type="radio" formControlName="sex" id="female-dog" value="Female">
+                Female
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mb-2">
+              <label for="dog-description" class="label">Description</label>
+              <textarea formControlName="description" id="dog-description" class="form-control" placeholder="Brief dog's description"></textarea>
+            </div>
+
+            <div class="col-12 mb-4">
+              <label for="dog-image" class="label">Image URL</label>
+              <input type="text" formControlName="imgUrl" id="dog-image" class="form-control" placeholder="Dog's image URL">
+            </div>
+            
+            <div class="col-12">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

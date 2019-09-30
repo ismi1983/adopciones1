@@ -10,6 +10,7 @@ import { DogsComponent } from './components/dogs/dogs.component';
 import { DogComponent } from './components/dog/dog.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { CreateDogComponent } from './components/create-dog/create-dog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './components/login/login.component';
     DogsComponent,
     DogComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CreateDogComponent
   ],
   imports: [
     BrowserModule,

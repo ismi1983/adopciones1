@@ -1,5 +1,9 @@
 <div class="container">
   <div class="dogs-container">
+    <div class="mb-3">
+      <button class="btn btn-success" (click)="toCreatePage()">Create</button>
+    </div>
+
     <div class="row">
       <ng-container *ngFor="let dog of dogs">
         <app-dog [dog]="dog" class="col-sm-6 col-lg-4"></app-dog>

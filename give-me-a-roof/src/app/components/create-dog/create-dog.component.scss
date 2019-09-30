@@ -1,0 +1,32 @@
+@import '../../../sass/base';
+
+.create-dog {
+  color: $font-primary;
+
+  .card {
+    background-color: $background-primary;
+  }
+
+  .label {
+    font-weight: 700;
+  }
+  
+  .dog-sex {
+    justify-content: center;
+  
+    label + label {
+      margin-left: 15px;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px 15px;
+
+    @include medium {
+      width: auto;
+      display: block;
+      margin-left: auto;
+    }
+  }
+}

@@ -15,4 +15,8 @@ export class DogsService {
   getDogs(): Observable<Dog[]> {
     return this.http.get<Dog[]>(environment.apiUrl);
   }
+
+  createDog(data: Dog): Observable<Dog> {
+    return this.http.post<Dog>(environment.apiUrl, data);
+  }
 }
