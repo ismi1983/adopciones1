@@ -14,4 +14,8 @@ export class DogComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteDog(): void{
+    alert("No");
+    /* Metodo service delete */
+  }
 }

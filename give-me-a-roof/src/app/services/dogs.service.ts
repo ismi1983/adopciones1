@@ -19,4 +19,9 @@ export class DogsService {
   createDog(data: Dog): Observable<Dog> {
     return this.http.post<Dog>(environment.apiUrl, data);
   }
+
+  deleteDog(data: Dog): Observable<Dog> {
+    const url = `${environment.apiUrl}/${data.id}`;
+    return this.http.delete<Dog>(url);
+  }
 }
