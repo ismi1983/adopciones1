@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'dogs/create',
     component: CreateDogComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
