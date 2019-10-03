@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,22 +15,36 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   });
 
-  constructor(private routing: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
   login(): void {
     if (this.loginForm.valid) {
-      this.routing.navigate(['/']);
+      // attempt login and store token
+      this.loginService
+        .login(this.loginForm.value)
+        .subscribe((token: string): void => {
+          localStorage.setItem('auth', JSON.stringify(token));
+
+          // navigate to other route
+          this.router.navigateByUrl('/');
+        });
     } else {
-      if (!this.loginForm.get('email').valid && this.loginForm.get('password').valid) {
-        alert("El correo proporcionado es incorrecto.");
-      } else if (!this.loginForm.get('password').valid && this.loginForm.get('email').valid) {
-        alert("La contraseña proporcionada es incorrecta.");
-      } else {
-        alert("Los datos proporcionados son incorrectos.");
-      }
+      alert('The data provided is invalid');
     }
+
+    // if (this.loginForm.valid) {
+    //   this.routing.navigate(['/']);
+    // } else {
+    //   if (!this.loginForm.get('email').valid && this.loginForm.get('password').valid) {
+    //     alert("El correo proporcionado es inválido.");
+    //   } else if (!this.loginForm.get('password').valid && this.loginForm.get('email').valid) {
+    //     alert("La contraseña proporcionada es inválida.");
+    //   } else {
+    //     alert("Los datos proporcionados son inválidos.");
+    //   }
+    // }
   }
 }

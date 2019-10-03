@@ -11,6 +11,9 @@ import { DogComponent } from './components/dog/dog.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateDogComponent } from './components/create-dog/create-dog.component';
+import { SignupComponent } from './components/signup/signup.component';
+
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { CreateDogComponent } from './components/create-dog/create-dog.component
     DogComponent,
     HomeComponent,
     LoginComponent,
-    CreateDogComponent
+    CreateDogComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { CreateDogComponent } from './components/create-dog/create-dog.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
