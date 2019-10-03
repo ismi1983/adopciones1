@@ -24,4 +24,8 @@ export class DogsComponent implements OnInit {
   toCreatePage(): void {
     this.router.navigateByUrl('dogs/create');
   }
+
+  updated(ev: Event): void {
+    window.location.reload();
+  }
 }

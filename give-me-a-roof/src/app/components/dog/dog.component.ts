@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Dog } from 'src/app/models/dog';
+import { DogsService } from 'src/app/services/dogs.service';
 
 @Component({
   selector: 'app-dog',
@@ -8,14 +9,17 @@ import { Dog } from 'src/app/models/dog';
 })
 export class DogComponent implements OnInit {
   @Input() dog: Dog;
+  @Output() refresh = new EventEmitter();
 
-  constructor() { }
+  constructor(private dogsService: DogsService) { }
 
   ngOnInit() {
   }
 
-  deleteDog(): void{
-    alert("No");
-    /* Metodo service delete */
+  deleteDog(id: number): void{
+    const dog = this.dogsService.deleteDog(id).subscribe(()=>{
+      this.refresh.emit(id);
+    });
+    console.log(dog);
   }
 }

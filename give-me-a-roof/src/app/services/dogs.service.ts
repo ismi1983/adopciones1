@@ -20,8 +20,8 @@ export class DogsService {
     return this.http.post<Dog>(environment.apiUrl, data);
   }
 
-  deleteDog(data: Dog): Observable<Dog> {
-    const url = `${environment.apiUrl}/${data.id}`;
+  deleteDog(id: number): Observable<Dog> {
+    const url = `${environment.apiUrl}/${id}`;
     return this.http.delete<Dog>(url);
   }
 }
