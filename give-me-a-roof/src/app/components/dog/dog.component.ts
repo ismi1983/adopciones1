@@ -9,7 +9,7 @@ import { DogsService } from 'src/app/services/dogs.service';
 })
 export class DogComponent implements OnInit {
   @Input() dog: Dog;
-  @Output() refresh = new EventEmitter();
+  @Output() deleteDogEvent: EventEmitter<number> = new EventEmitter();
 
   constructor(private dogsService: DogsService) { }
 
@@ -17,9 +17,8 @@ export class DogComponent implements OnInit {
   }
 
   deleteDog(id: number): void{
-    const dog = this.dogsService.deleteDog(id).subscribe(()=>{
-      this.refresh.emit(id);
+    this.dogsService.deleteDog(id).subscribe(()=>{
+      this.deleteDogEvent.emit(id);
     });
-    console.log(dog);
   }
 }

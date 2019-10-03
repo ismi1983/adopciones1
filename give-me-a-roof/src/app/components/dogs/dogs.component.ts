@@ -25,7 +25,7 @@ export class DogsComponent implements OnInit {
     this.router.navigateByUrl('dogs/create');
   }
 
-  updated(ev: Event): void {
-    window.location.reload();
+  deletedDog(): void {
+    this.ngOnInit();
   }
 }
