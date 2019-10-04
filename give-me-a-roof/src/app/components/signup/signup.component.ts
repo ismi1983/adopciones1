@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SignupService } from '../../services/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,16 +18,24 @@ export class SignupComponent implements OnInit {
     confirmPassword: new FormControl('', Validators.required),
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private signupService: SignupService) { }
 
   ngOnInit() {
   }
 
   signup(): void {
     if (this.signupForm.valid) {
-      this.router.navigateByUrl('/');
+      // attempt login and store token
+      this.signupService
+        .signup(this.signupForm.value)
+        .subscribe((token: string): void => {
+          localStorage.setItem('auth', JSON.stringify(token));
+
+          // navigate to other route
+          this.router.navigateByUrl('/');
+        });
     } else {
-      alert('Check your data! Some of it is wrong');
+      alert('The data provided is invalid');
     }
   }
 
