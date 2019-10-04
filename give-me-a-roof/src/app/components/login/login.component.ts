@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
       // attempt login and store token
       this.loginService
         .login(this.loginForm.value)
-        .subscribe((token: string): void => {
-          localStorage.setItem('auth', JSON.stringify(token));
+        .subscribe((response: object): void => {
+          localStorage.setItem('auth', response.data.token);
 
           // navigate to other route
           this.router.navigateByUrl('/');
