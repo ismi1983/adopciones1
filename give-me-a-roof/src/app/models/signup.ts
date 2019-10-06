@@ -1,7 +1,7 @@
-export class SignUp {
-  firstName: string;
+export class Signup {
+  name: string;
   lastName: string;
   email: string;
   password: string;
-  validatePassword: string;
+  confirmPassword: string;
 }

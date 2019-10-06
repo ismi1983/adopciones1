@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { LoginResponse } from 'src/app/models/login-response';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +26,9 @@ export class LoginComponent implements OnInit {
       // attempt login and store token
       this.loginService
         .login(this.loginForm.value)
-        .subscribe((response: object): void => {
-          localStorage.setItem('auth', response.data.token);
+        .subscribe((response: LoginResponse): void => {
+          const { token } = response.data; 
+          localStorage.setItem('auth', token);
 
           // navigate to other route
           this.router.navigateByUrl('/');
@@ -34,17 +36,5 @@ export class LoginComponent implements OnInit {
     } else {
       alert('The data provided is invalid');
     }
-
-    // if (this.loginForm.valid) {
-    //   this.routing.navigate(['/']);
-    // } else {
-    //   if (!this.loginForm.get('email').valid && this.loginForm.get('password').valid) {
-    //     alert("El correo proporcionado es inválido.");
-    //   } else if (!this.loginForm.get('password').valid && this.loginForm.get('email').valid) {
-    //     alert("La contraseña proporcionada es inválida.");
-    //   } else {
-    //     alert("Los datos proporcionados son inválidos.");
-    //   }
-    // }
   }
 }

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SignUp } from '../models/signup';
+import { Signup } from '../models/signup';
+import { Response } from '../models/response';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class SignupService {
 
   constructor(private http: HttpClient) { }
 
-  signup(credentials: object): Observable<SignUp> {
-    return this.http.post<SignUp>('/api/auth/user', credentials);
+  signup(credentials: Signup): Observable<Response> {
+    return this.http.post<Response>(`${environment.apiUrl}/api/auth/user`, credentials);
   }
 }

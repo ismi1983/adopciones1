@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from '../../services/signup.service';
+import { Response } from 'src/app/models/response';
 
 @Component({
   selector: 'app-signup',
@@ -11,8 +12,8 @@ import { SignupService } from '../../services/signup.service';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]\w+')]),
-    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]\w+')]),
+    name: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
@@ -28,11 +29,13 @@ export class SignupComponent implements OnInit {
       // attempt login and store token
       this.signupService
         .signup(this.signupForm.value)
-        .subscribe((token: string): void => {
-          localStorage.setItem('auth', JSON.stringify(token));
-
-          // navigate to other route
-          this.router.navigateByUrl('/');
+        .subscribe((response: Response): void => {
+          if (response.status === 'success') {
+            // navigate to other route
+            this.router.navigateByUrl('/');
+          } else {
+            console.log(response);
+          }
         });
     } else {
       alert('The data provided is invalid');
