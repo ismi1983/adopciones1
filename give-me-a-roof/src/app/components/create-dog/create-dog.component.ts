@@ -32,8 +32,7 @@ export class CreateDogComponent implements OnInit {
   }
 
   private submitDog(data: Dog): void {
-    this.dogService.createDog(data).subscribe((data: Dog): void => {
-      console.log(data);
+    this.dogService.createDog(data).subscribe((response) => {
       this.router.navigateByUrl('dogs');
     });
   }

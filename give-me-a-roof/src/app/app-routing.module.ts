@@ -6,8 +6,6 @@ import { LoginComponent } from './components/login/login.component';
 import { CreateDogComponent } from './components/create-dog/create-dog.component';
 import { SignupComponent } from './components/signup/signup.component';
 
-import { AuthGuard } from './auth/auth.guard';
-
 const routes: Routes = [
   {
     path: '',
@@ -20,7 +18,6 @@ const routes: Routes = [
   {
     path: 'dogs/create',
     component: CreateDogComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'login',

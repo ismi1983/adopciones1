@@ -3,25 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Dog } from '../models/dog';
+import { DogsResponse } from '../models/dogs-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DogsService {
-  dogs: Dog[];
 
   constructor(private http: HttpClient) { }
 
-  getDogs(): Observable<Dog[]> {
-    return this.http.get<Dog[]>(environment.apiUrl);
+  getDogs(): Observable<DogsResponse> {
+    return this.http.get<DogsResponse>(`${environment.apiUrl}/dogs`);
   }
 
-  createDog(data: Dog): Observable<Dog> {
-    return this.http.post<Dog>(environment.apiUrl, data);
+  createDog(data: Dog): Observable<DogsResponse> {
+    data.age = +data.age;
+    return this.http.post<DogsResponse>(`${environment.apiUrl}/dogs/add`, data);
   }
 
-  deleteDog(id: number): Observable<Dog> {
-    const url = `${environment.apiUrl}/${id}`;
-    return this.http.delete<Dog>(url);
+  deleteDog(id: number): Observable<DogsResponse> {
+    const url = `${environment.apiUrl}/dogs/${id}`;
+    return this.http.delete<DogsResponse>(url);
   }
 }

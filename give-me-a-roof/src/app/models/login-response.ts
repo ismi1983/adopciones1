@@ -1,6 +1,6 @@
-export class LoginResponse {
-  status: string;
-  message: string;
+import { Response } from './response';
+
+export class LoginResponse extends Response {
   data: {
     token: string;
   };

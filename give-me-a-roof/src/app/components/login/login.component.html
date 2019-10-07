@@ -6,7 +6,7 @@
           <h2>Log In</h2>
   
           <form [formGroup]="loginForm" (ngSubmit)="login()">
-              <input type="text" placeholder="E-mail" formControlName="email" class="form-control">
+              <input type="text" placeholder="E-mail" formControlName="email" class="form-control" autofocus>
               <input type="password" placeholder="Password" formControlName="password" class="form-control">
               <button class="btn btn-primary">Log In</button>
           </form>
