@@ -13,16 +13,28 @@ export class DogsService {
   constructor(private http: HttpClient) { }
 
   getDogs(): Observable<DogsResponse> {
-    return this.http.get<DogsResponse>(`${environment.apiUrl}/dogs`);
+    return this.http.get<DogsResponse>(`${environment.apiUrl}/dogs`, {
+      headers: {
+        Authorization: localStorage.getItem('auth'),
+      },
+    });
   }
 
   createDog(data: Dog): Observable<DogsResponse> {
     data.age = +data.age;
-    return this.http.post<DogsResponse>(`${environment.apiUrl}/dogs/add`, data);
+    return this.http.post<DogsResponse>(`${environment.apiUrl}/dogs/add`, data, {
+      headers: {
+        Authorization: localStorage.getItem('auth'),
+      }
+    });
   }
 
   deleteDog(id: number): Observable<DogsResponse> {
     const url = `${environment.apiUrl}/dogs/${id}`;
-    return this.http.delete<DogsResponse>(url);
+    return this.http.delete<DogsResponse>(url, {
+      headers: {
+        Authorization: localStorage.getItem('auth'),
+      }
+    });
   }
 }
